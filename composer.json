@@ -1,27 +1,33 @@
 {
     "name": "balhagar/laravel-toc",
+    "type": "library",
     "description": "Laravel Table of contents based on Wordpress Table of contents plugin",
     "keywords": [
         "balhagar",
-        "laravel-toc"
+        "laravel-toc",
+        "laravel-table-of-contents",
+        "table-of-contents",
+        "Laravel",
+        "package"
     ],
-    "homepage": "https://github.com/balhagar/laravel-toc",
+    "homepage": "https://github.com/BahaaAlhagar/laravel-toc",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
             "name": "Bahaa Alhagar",
+            "homepage": "https://github.com/BahaaAlhagar",
             "email": "bahaa.rock@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^7.4|^8.0",
-        "illuminate/support": "^8.0"
+        "php": "^5.4|^7.0|^8.0",
+        "illuminate/support": "^5.0|^6.0|^7.0|^8.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.0",
-        "phpunit/phpunit": "^9.0"
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^5.0"
     },
     "autoload": {
         "psr-4": {
@@ -44,10 +50,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Balhagar\\LaravelToc\\LaravelTocServiceProvider"
+                "Balhagar\\LaravelToc\\TocServiceProvider"
             ],
             "aliases": {
-                "LaravelToc": "Balhagar\\LaravelToc\\LaravelTocFacade"
+                "Toc": "Balhagar\\LaravelToc\\Facades\\Toc"
             }
         }
     }
