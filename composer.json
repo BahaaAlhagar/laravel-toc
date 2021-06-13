@@ -4,9 +4,11 @@
     "description": "Laravel Table of contents based on Wordpress Table of contents plugin",
     "keywords": [
         "balhagar",
+        "BahaaAlhagar",
         "laravel-toc",
         "laravel-table-of-contents",
         "table-of-contents",
+        "toc",
         "Laravel",
         "package"
     ],

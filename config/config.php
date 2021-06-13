@@ -2,6 +2,11 @@
 
 return [
     /**
+     * Minimum string character length to generate a table of contents
+     */
+    'min_length'    =>  1000,
+
+    /**
      * Heading prefix leave empty to disable
      */
     'prefix'    =>  'toc',
