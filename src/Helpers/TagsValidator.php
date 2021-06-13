@@ -8,7 +8,7 @@ final class TagsValidator
      * @param array $tags
      * @return array
      */
-    public function validate(array $tags) : array
+    public function validate(array $tags)
     {
         $tags = $this->filterDuplicates($tags);
         foreach ($tags as $tag) {
@@ -34,7 +34,7 @@ final class TagsValidator
      * @param array $tags
      * @return array
      */
-    private function reindexAndSort(array $tags) : array
+    private function reindexAndSort(array $tags)
     {
         sort($tags);
         return array_values($tags);
@@ -44,7 +44,7 @@ final class TagsValidator
      * @param array $array
      * @return array
      */
-    private function filterDuplicates(array $array) : array
+    private function filterDuplicates(array $array)
     {
         return array_unique($array);
     }

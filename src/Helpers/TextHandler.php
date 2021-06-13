@@ -14,7 +14,7 @@ final class TextHandler
      * @param int $minLength
      * @return array
      */
-    public function getHeadersFromTextByTags(string $text, array $tags, int $minLength) : array
+    public function getHeadersFromTextByTags(string $text, array $tags, int $minLength)
     {
         if ($this->isTextTooShort($text, $minLength)) {
             return [];
@@ -24,7 +24,7 @@ final class TextHandler
         return $this->headersParser->getParsedHeaders();
     }
 
-    public function getProcessedText(string $text, array $tags, int $minLength) : string
+    public function getProcessedText(string $text, array $tags, int $minLength)
     {
         if ($this->isTextTooShort($text, $minLength)) {
             return $text;
@@ -33,7 +33,7 @@ final class TextHandler
         return $this->addIdAttributesToHeadersInText($text);
     }
 
-    private function addIdAttributesToHeadersInText(string $text) : string
+    private function addIdAttributesToHeadersInText(string $text)
     {
         $tagCount = 0;
         $prevTagLevel = '';
@@ -58,13 +58,13 @@ final class TextHandler
         return $matchedHeader[0];
     }
 
-    private function getFormattedHeader(int $tagCount, array $matchedHeader) : string
+    private function getFormattedHeader(int $tagCount, array $matchedHeader)
     {
         return "<{$matchedHeader[1]} " . 'id="header-'
             . $tagCount . '"' . $matchedHeader[2] . '>';
     }
 
-    private function filterUnusedHeadersTags(array $tags, string $text) : array
+    private function filterUnusedHeadersTags(array $tags, string $text)
     {
         $tags = array_filter($tags, function ($tag) use ($text) {
             return preg_match("|<{$tag}([^>]*)>|i", $text);
@@ -72,12 +72,12 @@ final class TextHandler
         return $tags;
     }
 
-    private function isTextTooShort(string $text, int $minLength) : bool
+    private function isTextTooShort(string $text, int $minLength)
     {
         return strlen($text) < $minLength;
     }
 
-    private function getPatternFromTags() : string
+    private function getPatternFromTags()
     {
         $patternString = '(' . implode('|', $this->tags) . ')';
         $pattern = "/<{$patternString}([^>]*)>/i";

@@ -22,7 +22,7 @@ class ContentHandler
         $this->textHandler = new TextHandler();
     }
 
-    public function fromText(string $text) : self
+    public function fromText(string $text)
     {
         $this->text = $text;
         return $this;
@@ -33,7 +33,7 @@ class ContentHandler
      * unhandled text if text's length lower than minLength.
      * @return string
      */
-    public function getHandledText() : string
+    public function getHandledText()
     {
         return $this->textHandler->getProcessedText($this->text, $this->tags, $this->minLength);
     }
@@ -42,13 +42,13 @@ class ContentHandler
      * Generates TableOfContents in multi-demensional array.
      * @return array
      */
-    public function getContentsArray() : array
+    public function getContentsArray()
     {
         $headers = $this->textHandler->getHeadersFromTextByTags($this->text, $this->tags, $this->minLength);
         return $headers ? $this->contentsGenerator->generateFromHeaders($headers) : [];
     }
 
-    public function setTags(array $tags) : self
+    public function setTags(array $tags)
     {
         if (!empty($tags)) {
             $this->tags = $this->tagsValidator->validate($tags);
@@ -56,7 +56,7 @@ class ContentHandler
         return $this;
     }
 
-    public function setMinLength(int $length) : self
+    public function setMinLength(int $length)
     {
         $this->minLength = $length;
         return $this;

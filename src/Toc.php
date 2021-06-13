@@ -23,14 +23,14 @@ class Toc
     {
     }
     
-    public function setTags(array $tags) : self
+    public function setTags(array $tags)
     {
         $this->contentHandler->setTags($tags);
 
         return $this;
     }
 
-    public function setMinLength(int $length) : self
+    public function setMinLength(int $length)
     {
         $this->contentHandler->setMinLength($length);
 

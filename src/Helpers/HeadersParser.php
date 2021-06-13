@@ -41,14 +41,14 @@ final class HeadersParser
         return;
     }
 
-    private function validateHeadersStructure() : void
+    private function validateHeadersStructure()
     {
         foreach ($this->parsedHeaders as $key => $header) {
             $this->deleteUnstructuredHeader($key, $this->parsedHeaders);
         }
     }
 
-    private function deleteUnstructuredHeader(int $key, &$headers) : void
+    private function deleteUnstructuredHeader(int $key, &$headers)
     {
         if ($key > 0 && ($headers[$key]['level'] - $headers[$key - 1]['level'] > 1)) {
             unset($headers[$key]);
