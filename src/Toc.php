@@ -2,7 +2,7 @@
 
 namespace Balhagar\LaravelToc;
 
-class LaravelToc
+class Toc
 {
     // Build your next great package.
 }

@@ -1,13 +1,13 @@
 <?php
 
-namespace Balhagar\LaravelToc;
+namespace Balhagar\LaravelToc\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \Balhagar\LaravelToc\Skeleton\SkeletonClass
  */
-class LaravelTocFacade extends Facade
+class Toc extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -16,6 +16,6 @@ class LaravelTocFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'laravel-toc';
+        return 'toc';
     }
 }
