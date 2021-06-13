@@ -11,36 +11,18 @@ class TocServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        /*
-         * Optional methods to load your package assets
-         */
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'toc');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'toc');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'toc');
 
         if ($this->app->runningInConsole()) {
+            // Publishing the config.
             $this->publishes([
                 __DIR__.'/../config/config.php' => config_path('toc.php'),
             ], 'config');
 
             // Publishing the views.
-            /*$this->publishes([
+            $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/toc'),
-            ], 'views');*/
-
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/toc'),
-            ], 'assets');*/
-
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/toc'),
-            ], 'lang');*/
-
-            // Registering package commands.
-            // $this->commands([]);
+            ], 'views');
         }
     }
 
@@ -53,8 +35,8 @@ class TocServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'toc');
 
         // Register the main class to use with the facade
-        $this->app->singleton('toc', function () {
-            return new Toc;
+        $this->app->singleton('toc', function ($app) {
+            return new Toc($app);
         });
     }
 }
