@@ -1,6 +1,6 @@
 <?php
 
-namespace Balhagar\Toc;
+namespace Balhagar\LaravelToc;
 
 use Illuminate\Support\ServiceProvider;
 
