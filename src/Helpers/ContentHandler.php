@@ -1,9 +1,10 @@
 <?php
 
-namespace Balhagar\LaravelToc\Contents;
+namespace Balhagar\LaravelToc\Helpers;
 
-class Contents
+class ContentHandler
 {
+    protected $app;
     private $tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
     private $minLength = 1000;
     private $text = '';
@@ -12,8 +13,10 @@ class Contents
     private $tagsValidator;
     private $contentsGenerator;
 
-    public function __construct()
+    public function __construct($app)
     {
+        $this->app = $app;
+
         $this->contentsGenerator = new ContentsFromHeadersGenerator();
         $this->tagsValidator = new TagsValidator();
         $this->textHandler = new TextHandler();

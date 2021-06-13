@@ -1,6 +1,6 @@
 <?php
 
-namespace Balhagar\LaravelToc\Contents;
+namespace Balhagar\LaravelToc\Helpers;
 
 class ContentsFromHeadersGenerator
 {

@@ -2,13 +2,17 @@
 
 namespace Balhagar\LaravelToc;
 
+use Balhagar\LaravelToc\Helpers\ContentHandler;
+
 class Toc
 {
     protected $app;
+    protected $contentHandler;
 
     public function __construct($app)
     {
         $this->app = $app;
+        $this->contentHandler = new ContentHandler($app);
     }
 
     public function generateContents($content)
@@ -19,7 +23,17 @@ class Toc
     {
     }
     
-    public function getFormatedHeadings($content)
+    public function setTags(array $tags) : self
     {
+        $this->contentHandler->setTags($tags);
+
+        return $this;
+    }
+
+    public function setMinLength(int $length) : self
+    {
+        $this->contentHandler->setMinLength($length);
+
+        return $this;
     }
 }
