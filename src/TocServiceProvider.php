@@ -35,7 +35,7 @@ class TocServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'toc');
 
         // Register the main class to use with the facade
-        $this->app->singleton('toc', function ($app) {
+        $this->app->bind('toc', function ($app) {
             return new Toc($app);
         });
     }
